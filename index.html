@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arpita Khivasara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #1f1e20;
+            --text-color: #030000;
+            --bg-color: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 420px;
+            width: 100%;
+            background: #938992;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .banner {
+            width: 100%;
+            height: 150px;
+            background: var(--primary-color);
+            background-image: url(./assests/pink.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: absolute;
+            top: 90px;
+            left: 22%;
+            transform: translateX(-50%);
+            border: 5px solid #ffffff;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .content {
+            text-align: center;
+            padding: 130px 30px 30px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #010101;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .social-icons,
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+            justify-items: center;
+            /* Centers the icons horizontally */
+            align-items: center;
+        }
+
+        .social-icons a,
+        .action-buttons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover[title="Email"] {
+            background: #d93025;
+        }
+
+        .social-icons a:hover[title="Instagram"] {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+        }
+
+        .social-icons a:hover[title="LinkedIn"] {
+            background: #0077b5;
+        }
+
+        .social-icons a:hover[title="GitHub"] {
+            background: #564b4b;
+            color: #ffffff;
+        }
+
+        .social-icons a:hover[title="Website"] {
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons a:hover[title="Send SMS"] {
+            background: #1e88e5;
+        }
+
+        .action-buttons a:hover[title="WhatsApp"] {
+            background: #25d366;
+        }
+
+        .action-buttons a:hover[title="Google Pay"] {
+            background: linear-gradient(45deg, #4285f4, #ea4335, #fbbc05);
+        }
+
+        .action-buttons a:hover[title="Call or Save Contact"] {
+            background: #1976d2;
+            color: #ffffff;
+        }
+
+        .action-buttons a:hover[title="Paytm"] {
+            background: #00B9F1;
+        }
+
+        .social-icons img,
+        .action-buttons img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img,
+        .action-buttons a:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ffffff;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn:hover {
+            background: var(--secondary-color);
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="banner"></div>
+        <img src="./assests/arpita.jpeg" alt="Arpita Khivasara" class="profile-pic">
+        <div class="content">
+            <h1>Arpita Khivasara</h1>
+            <p class="description">Hi, Arpita Khivasara. Connect with Our Style Instantly!</p>
+
+            <div class="social-icons"
+                style="display: flex; justify-content: center; gap: 25px; margin: 40px 0; flex-wrap: wrap; transition: all 0.3s ease;">
+                <a href="mailto:arpitakhivasara@gmail.com" title="Email"
+                    style="transform: scale(1); transition: transform 0.3s ease-in-out;">
+                    <img src="./assests/icons8-gmail.svg" alt="Gmail" style="width: 40px; height: 40px;">
+                </a>
+                <a href="https://www.instagram.com/_thevintageattire?igsh=ZWFrdjZmcW10cDFt" title="Instagram"
+                    style="transform: scale(1); transition: transform 0.3s ease-in-out;">
+                    <img src="./assests/icons8-instagram.svg" alt="Instagram" style="width: 40px; height: 40px;">
+                </a>
+                <a href="sms:+91 9413222694?body=Hi%20kunika" title="Send SMS"
+                    style="transform: scale(1); transition: transform 0.3s ease-in-out;">
+                    <img src="./assests/Google_Messages_icon_(2022).svg.svg" alt="SMS"
+                        style="width: 40px; height: 40px;">
+                </a>
+            </div>
+
+            <div class="action-buttons"
+                style="display: flex; justify-content: center; gap: 25px; margin: 25px 0; flex-wrap: wrap; transition: all 0.3s ease;">
+                <div style="width: 100%; display: flex; justify-content: center; gap: 25px; margin-bottom: 25px;">
+                    <a href="https://chat.whatsapp.com/EOwbHa4jyv7HjYAzCCcy3M" title="WhatsApp"
+                        style="transform: scale(1); transition: transform 0.3s ease-in-out;">
+                        <img src="./assests/icons8-whatsapp.svg" alt="WhatsApp" style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="https://gpay.app.goo.gl/pay?pa=arpitakhivasara@okicici&pn=Arpita%20Khivasara&cu=INR"
+                        title="Google Pay" style="transform: scale(1); transition: transform 0.3s ease-in-out;">
+                        <img src="./assests/icons8-google-pay.svg" alt="Google Pay" style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="tel:+91 9413222694" id="add-contact" title="Call or Save Contact"
+                        style="transform: scale(1); transition: transform 0.3s ease-in-out;">
+                        <img src="./assests/Google_Contacts_icon_(2022).svg.svg" alt="Add to Contacts"
+                            style="width: 40px; height: 40px;">
+                    </a>
+                </div>
+                <div style="width: 100%; display: flex; justify-content: center; gap: 25px;">
+                    <a href="https://www.instagram.com/armifusionclothing?igsh=NjN6cW4yODVjZzRk" title="Instagram"
+                        style="transform: scale(1); transition: transform 0.3s ease-in-out;">
+                        <img src="./assests/icons8-instagram.svg" alt="Instagram" style="width: 40px; height: 40px;">
+                    </a>
+                    <a href="paytm://upi/pay?pa=9413222694@pthdfc&pn=Paytm%20User&cu=INR" title="Paytm" style="transform: scale(1); transition: transform 0.3s ease-in-out;">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/paytm.png" alt="paytm" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="image-modal">
+        <button class="close-btn" id="close-modal">&times;</button>
+        <img src="./assests/arpita.jpeg" alt="Arpita Khivasara">
+    </div>
+
+    <script>
+        const profilePic = document.querySelector('.profile-pic');
+        const modal = document.getElementById('image-modal');
+        const closeModal = document.getElementById('close-modal');
+
+        profilePic.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
